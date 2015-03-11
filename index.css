@@ -1,0 +1,60 @@
+.fadein {
+  opacity: 1;
+  -webkit-transition: opacity 0.5s ease-in;
+  background-color: rgba(0,0,0, 0);
+}
+
+.fadeout {
+  opacity: 0;
+  -webkit-transition: opacity 2s ease-out;
+  background-color: rgba(0,0,0, 0);
+}
+
+.dezaag_logo {
+    background: blue;
+    padding: 8px;
+    margin: 0;
+}
+.dezaag_logo p {
+    font: 48px arial, sans-serif, "Source Sans", helvetica;
+    font-weight: bold;
+    color: white;
+    width: 100%;
+    text-align: right;
+    margin: 0;
+}
+
+
+#weight {
+    width: 100%;
+    text-align:center;
+    padding: 0;
+    margin: 0;
+}
+#weightdisplay {
+    font: 50px arial, sans-serif, helvetica;
+    font-weight: bold;
+    padding: 16px;
+    display: none;
+    //valign: middle;
+}
+#content table {
+    width: 100%;
+    border-spacing: 0;
+}
+#content td {
+    font: 10px;
+}
+#content td#ind_red {
+    background: darkred;
+}
+#content td#ind_yellow {
+    background: chocolate;
+}
+#content td#ind_green {
+    background: darkgreen;
+}
+
+#debugmessages {
+  height: 16ex !important;
+}
