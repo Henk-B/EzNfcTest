@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="nl.whitebream.dezaag.weighting" 
+    xmlns="http://www.w3.org/ns/widgets"
+    xmlns:gap="http://phonegap.com/ns/1.0"
+    version="0.1.0">
+
+    <name>Weighting</name>
+    
+    <description>
+        Display and calibration utility for the vehicle weighting system 'van De Zaag'.
+    </description>
+    
+    <author email="dezaag@whitebream.nl" href="http://whitebream.nl/dezaag">
+        Henk Bliek, White Bream
+    </author>
+    
+    <gap:plugin name="org.apache.cordova.splashscreen" version="0.3.4" />
+    <gap:plugin name="com.megster.cordova.bluetoothserial" version="0.3.3" />
+    <gap:plugin name="com.phonegap.plugins.barcodescanner" version="2.0.0" />
+    
+    <icon src="img/truck-load.png" width="512" height="512" />
+
+    <feature name="http://api.phonegap.com/1.0/device" />
+    <preference name="phonegap-version" value="3.6.3" />
+    <preference name="orientation" value="default" />
+    <preference name="target-device" value="universal" />
+    <preference name="fullscreen" value="false" />
+    <preference name="KeyboardShrinksView" value="true" />
+    <preference name="DisallowOverscroll" value="true" />
+    <access origin="*" />
+</widget>
