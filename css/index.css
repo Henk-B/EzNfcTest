@@ -35,8 +35,7 @@
     font: 50px arial, sans-serif, helvetica;
     font-weight: bold;
     padding: 16px;
-    display: none;
-    //valign: middle;
+    //display: none;
 }
 #content table {
     width: 100%;
