@@ -18,7 +18,7 @@
     <gap:plugin name="com.megster.cordova.bluetoothserial" version="0.3.3" />
     <gap:plugin name="com.phonegap.plugins.barcodescanner" version="2.0.0" />
     
-    <icon src="images/lock.png" width="225" height="225" />
+    <icon src="images/lock.jpg" width="225" height="225" />
 
     <feature name="http://api.phonegap.com/1.0/device" />
     <preference name="phonegap-version" value="3.6.3" />
