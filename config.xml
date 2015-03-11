@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="nl.whitebream.dezaag.weighting" 
+<widget id="nl.whitebream.ezlock.demo" 
     xmlns="http://www.w3.org/ns/widgets"
     xmlns:gap="http://phonegap.com/ns/1.0"
     version="0.1.0">
@@ -15,7 +15,6 @@
     </author>
     
     <gap:plugin name="org.apache.cordova.splashscreen" version="0.3.4" />
-    <gap:plugin name="com.megster.cordova.bluetoothserial" version="0.3.3" />
     <gap:plugin name="com.phonegap.plugins.barcodescanner" version="2.0.0" />
     
     <icon src="images/lock.png" width="225" height="225" />
