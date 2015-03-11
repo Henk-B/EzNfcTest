@@ -131,7 +131,7 @@
 <div data-role="header" style="overflow:hidden;" class="ui-page-theme-b" data-position="fixed" data-tap-toggle="false">
   <h1>ezLock</h1>
   <div data-role="controlgroup" class="control ui-btn-right" data-type="horizontal" data-mini="true">
-    <!--a id="connectIcon" href="#bluetooth" data-role="button" data-icon="check" data-iconpos="notext" class="ui-state-disabled">Bluetooth</a-->
+    <a id="connectIcon" href="#bluetooth" data-role="button" data-icon="check" data-iconpos="notext" onclick="schedule();">Bluetooth</a>
     <!--a href="#" data-role="button" data-icon="gear">Options</a-->
   </div>
   <div data-role="controlgroup" class="control ui-btn-left" data-type="horizontal" data-mini="true">
@@ -155,6 +155,31 @@
   <div data-role="footer" data-position="fixed" data-tap-toggle="false">
     <div class="statusMessage"></div>
   </div>
+
+        <!-- permission -->
+        <script type="text/javascript">
+            hasPermission = function () {
+                cordova.plugins.notification.local.hasPermission(function (granted) {
+                    alert(granted);
+                });
+            };
+            registerPermission = function () {
+                cordova.plugins.notification.local.registerPermission(function (granted) {
+                    alert(granted);
+                });
+            };
+        </script>
+        <script type="text/javascript">
+            schedule = function () {
+                cordova.plugins.notification.local.schedule({
+                    id:   1,
+                    text: 'Test Message 1',
+                    icon: 'http://www.optimizeordie.de/wp-content/plugins/social-media-widget/images/default/64/googleplus.png',
+                    sound: null,
+                    data: { test:id }
+                });
+            };
+      </script>
 
   <script>
     $(document).ready(function()
