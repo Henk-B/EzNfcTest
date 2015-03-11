@@ -4,13 +4,13 @@
     xmlns:gap="http://phonegap.com/ns/1.0"
     version="0.1.0">
 
-    <name>Weighting</name>
+    <name>ezLock</name>
     
     <description>
-        Display and calibration utility for the vehicle weighting system 'van De Zaag'.
+        Concept for ezLock phone app.
     </description>
     
-    <author email="dezaag@whitebream.nl" href="http://whitebream.nl/dezaag">
+    <author email="hbliek@whitebream.nl" href="http://whitebream.nl/">
         Henk Bliek, White Bream
     </author>
     
@@ -18,11 +18,11 @@
     <gap:plugin name="com.megster.cordova.bluetoothserial" version="0.3.3" />
     <gap:plugin name="com.phonegap.plugins.barcodescanner" version="2.0.0" />
     
-    <icon src="img/truck-load.png" width="512" height="512" />
+    <icon src="img/lock.png" width="512" height="512" />
 
     <feature name="http://api.phonegap.com/1.0/device" />
     <preference name="phonegap-version" value="3.6.3" />
-    <preference name="orientation" value="default" />
+    <preference name="orientation" value="portrait" />
     <preference name="target-device" value="universal" />
     <preference name="fullscreen" value="false" />
     <preference name="KeyboardShrinksView" value="true" />
