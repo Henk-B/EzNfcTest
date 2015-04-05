@@ -143,11 +143,11 @@
 
 <div data-role="page" id="content" data-next="#about" class="ui-page-theme-b">
 
-  <div id="weight" class="ui-body ui-body ui-corner-all">
-    <span id="locationname"><p>Terborchdreef thv LaningPark<br>Oud Beijerland<p></span>
-    <span id="weightdisplay" class="weight">&lt; 12 &gt;</span>
-
-    <span id="duration" class="weight"><p>Maandag 12 maart 12:34<br>1 dag, 24 uur, 60 minuten</p></span>
+  <div class="ui-body ui-body ui-corner-all">
+    <div id="locationicon"></span><img src="images/Oud-Beijerland.png" alt="Gemeente Oud Beijerland"/></div>
+    <div id="locationname"><a href="geo:51.817612, 4.412318"><p>Terborchdreef thv LaningPark<br>Oud Beijerland<p></a></div>
+    <div id="location_num"><span id="left">&lt;</span><span id="number">12</span><span id="right">&gt;</span></div>
+    <div id="duration"><p>Maandag 12 maart 12:34<br>1 dag, 24 uur, 60 minuten</p></div>
 
     <a href="#" id="scan-qr" datatheme="d"><img src="images/qr.png" alt="Scan QR"/></a>
   </div>
@@ -156,37 +156,39 @@
     <div class="statusMessage"></div>
   </div>
 
-        <!-- permission -->
-        <script type="text/javascript">
-            hasPermission = function () {
-                cordova.plugins.notification.local.hasPermission(function (granted) {
-                    alert(granted);
-                });
-            };
-            registerPermission = function () {
-                cordova.plugins.notification.local.registerPermission(function (granted) {
-                    alert(granted);
-                });
-            };
-        </script>
-        <script type="text/javascript">
-            schedule = function () {
-                cordova.plugins.notification.local.schedule({
-                    id:   1,
-                    text: 'Test Message 1',
-                    icon: 'http://www.optimizeordie.de/wp-content/plugins/social-media-widget/images/default/64/googleplus.png',
-                    sound: null,
-                    data: { test:id }
-                });
-            };
-      </script>
+  <script type="text/javascript">
+    hasPermission = function ()
+    {
+      cordova.plugins.notification.local.hasPermission(function (granted)
+      {
+        alert(granted);
+      });
+    };
 
-  <script>
+    registerPermission = function ()
+    {
+      cordova.plugins.notification.local.registerPermission(function (granted)
+      {
+        alert(granted);
+      });
+    };
+
+    schedule = function ()
+    {
+      cordova.plugins.notification.local.schedule({
+        id:   1,
+        text: 'Test Message 1',
+        icon: 'http://www.optimizeordie.de/wp-content/plugins/social-media-widget/images/default/64/googleplus.png',
+        sound: null,
+        data: { test:id }
+      });
+    };
+
     $(document).ready(function()
     {
-      // Navigate to next page when the "next" button is clicked
       $(".control #scan-qr").on("click", function()
       {
+      alert("hi");
         var scansuccess = function (result)
         {
           remoteDevice = result.text;
@@ -214,7 +216,6 @@
       lastValue = args;
 
       $('.weight').html("<nobr>" + args[0] + "</nobr>");
-      //$('#weightprogress').val(args[0]);
 
       if(indicators)
       {
@@ -237,12 +238,6 @@
 
   </script>
 
-  <script type="text/javascript">
-    $(document).ready(function()
-    {
-      window.setInterval(function () {app.pollWeight()}, 1000);
-    });
-  </script>
 </div>
 
 

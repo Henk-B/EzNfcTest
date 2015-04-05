@@ -10,20 +10,24 @@
   background-color: rgba(0,0,0, 0);
 }
 
-.dezaag_logo {
-    background: blue;
-    padding: 8px;
-    margin: 0;
-}
-.dezaag_logo p {
-    font: 48px arial, sans-serif, "Source Sans", helvetica;
+#location, #duration {
+    font: 24px arial, sans-serif, helvetica;
     font-weight: bold;
-    color: white;
-    width: 100%;
-    text-align: right;
-    margin: 0;
+    padding: 16px;
+    text-align:center;
 }
 
+#locationicon {
+
+}
+
+#location_num {
+    font: 64px arial, sans-serif, helvetica;
+    font-weight: bold;
+    color: dark-grey;
+    padding: 16px;
+    text-align:center;
+}
 
 #weight {
     width: 100%;
@@ -43,15 +47,6 @@
 }
 #content td {
     font: 10px;
-}
-#content td#ind_red {
-    background: darkred;
-}
-#content td#ind_yellow {
-    background: chocolate;
-}
-#content td#ind_green {
-    background: darkgreen;
 }
 
 #debugmessages {
