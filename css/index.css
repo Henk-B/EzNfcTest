@@ -10,7 +10,7 @@
   background-color: rgba(0,0,0, 0);
 }
 
-#location, #duration {
+#locationname, #duration {
     font: 24px arial, sans-serif, helvetica;
     font-weight: bold;
     padding: 16px;
@@ -22,8 +22,13 @@
     max-height: 33%;
 }
 
-span.left span.right {
-    color: dark-grey;
+#left, #right {
+    color: grey;
+}
+
+#number {
+    padding-left: 1ex;
+    padding-right: 1ex;
 }
 
 #location_num {

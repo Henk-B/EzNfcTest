@@ -144,9 +144,11 @@
 <div data-role="page" id="content" data-next="#about" class="ui-page-theme-b">
 
   <div class="ui-body ui-body ui-corner-all">
-    <div id="locationicon"><img src="images/ezlock.png" alt="ezLock" width="100%" /></div>
-    <div id="locationname"><a href="geo:52.378417,4.896605"><p>Prins Hendrikkade<br>Amsterdam<p></a></div>
-    <div id="location_num"><span id="left">&swArr;</span><span id="number">12</span><span id="right">&seArr;</span></div>
+    <div id="locationicon"><a href="http://www.ezlock.nl"><img src="images/ezlock.png" alt="ezLock" width="100%" /></a></div>
+    <div id="locationname"><a href="http://maps.apple.com?daddr=52.378417,4.896605(Prins Hendrikkade, Amsterdam)"><p>Prins Hendrikkade, Amsterdam<p></a></div>
+    <div id="locationname"><a href="maps://maps.apple.com?q=52.378417,4.896605(Prins Hendrikkade, Amsterdam)"><p>Prins Hendrikkade, Amsterdam<p></a></div-->
+    <div id="locationname"><a href="geo:0,0?q=52.378417,4.896605(Prins+Hendrikkade,+Amsterdam)"><p>Prins Hendrikkade, Amsterdam<p></a></div>
+    <div id="location_num"><span id="left">&swArr;</span><span id="number">012</span><span id="right">&seArr;</span></div>
     <div id="duration"><p>Maandag 12 maart 12:34<br>1 dag, 24 uur, 60 minuten</p></div>
 
     <a href="#" id="scanqr" datatheme="d" onclick="scanqr()"><img src="images/qr.png" alt="Scan QR"/></a>
@@ -157,6 +159,26 @@
   </div>
 
   <script type="text/javascript">
+    var loc;
+    timestamp = Math.floor(Date.now() / 1000);
+
+    timeduration = function ()
+    {
+      var options = { weekday: "long", month: "long", day: "numeric", hour: "numeric", minute: "numeric"};
+
+      // format start date + time
+      var startdate = new Date(timestamp * 1000);
+      var datestr = startdate.toLocaleString(loc, options);
+
+      // Calculate spent time
+      var spendtime = Math.floor(Date.now() / 1000) - timestamp;
+      spendtime = Math.floor(spendtime / 60);
+      datestr += "<br>" + Math.floor(spendtime / 60) + ":" + ("0" + spendtime % 60).slice(-2);
+
+      $('#duration').html("<p>" + datestr + "</p>");
+      window.setTimeout(timeduration, 2000);
+    };
+
     hasPermission = function ()
     {
       cordova.plugins.notification.local.hasPermission(function (granted)
@@ -175,6 +197,8 @@
 
     schedule = function ()
     {
+     try
+     {
       cordova.plugins.notification.local.schedule({
         id:   1,
         text: 'Test Message 1',
@@ -182,6 +206,9 @@
         sound: null,
         data: { test:id }
       });
+     }
+     catch(e)
+     {}
     };
 
     scanqr = function()
@@ -202,7 +229,25 @@
 
     $(document).ready(function()
     {
+      if(navigator.globalization !== undefined)
+      {
+        navigator.globalization.getLocaleName(function (locale)
+        {
+          if (locale !== undefined) {
+            loc = locale.value;
+          }
+        },
+        function () {
+                // nothing
+            }
+        );
+      }
+
       schedule();
+      timeduration();
+    console.log("start");
+
+    $('#right').css("color", "white");
 
       $("#scanqr").on("click", function()
       {
