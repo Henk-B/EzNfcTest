@@ -18,7 +18,12 @@
 }
 
 #locationicon {
+    
+    max-height: 33%;
+}
 
+span.left span.right {
+    color: dark-grey;
 }
 
 #location_num {

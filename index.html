@@ -144,12 +144,12 @@
 <div data-role="page" id="content" data-next="#about" class="ui-page-theme-b">
 
   <div class="ui-body ui-body ui-corner-all">
-    <div id="locationicon"></span><img src="images/Oud-Beijerland.png" alt="Gemeente Oud Beijerland"/></div>
-    <div id="locationname"><a href="geo:51.817612, 4.412318"><p>Terborchdreef thv LaningPark<br>Oud Beijerland<p></a></div>
-    <div id="location_num"><span id="left">&lt;</span><span id="number">12</span><span id="right">&gt;</span></div>
+    <div id="locationicon"><img src="images/ezlock.png" alt="ezLock" width="100%" /></div>
+    <div id="locationname"><a href="geo:52.378417,4.896605"><p>Prins Hendrikkade<br>Amsterdam<p></a></div>
+    <div id="location_num"><span id="left">&swArr;</span><span id="number">12</span><span id="right">&seArr;</span></div>
     <div id="duration"><p>Maandag 12 maart 12:34<br>1 dag, 24 uur, 60 minuten</p></div>
 
-    <a href="#" id="scan-qr" datatheme="d"><img src="images/qr.png" alt="Scan QR"/></a>
+    <a href="#" id="scanqr" datatheme="d" onclick="scanqr()"><img src="images/qr.png" alt="Scan QR"/></a>
   </div>
 
   <div data-role="footer" data-position="fixed" data-tap-toggle="false">
@@ -184,24 +184,28 @@
       });
     };
 
+    scanqr = function()
+    {
+      var scansuccess = function (result)
+      {
+        remoteDevice = result.text;
+        remoteName = "HC-05 (" + result.text + ")";
+        if(!result.cancelled)
+        {
+          connecting = true;
+          app.setStatus("Connecting to " + remoteName + "...");
+        }
+      };
+      var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+      scanner.scan(scansuccess);
+    };
+
     $(document).ready(function()
     {
-      $(".control #scan-qr").on("click", function()
+      schedule();
+
+      $("#scanqr").on("click", function()
       {
-      alert("hi");
-        var scansuccess = function (result)
-        {
-          remoteDevice = result.text;
-          remoteName = "HC-05 (" + result.text + ")";
-          if(!result.cancelled)
-          {
-            connecting = true;
-            app.setStatus("Connecting to " + remoteName + "...");
-            //bluetoothSerial.connect(remoteDevice, app.onconnect, app.ondisconnect);
-          }
-        };
-        var scanner = cordova.require("cordova/plugin/BarcodeScanner");
-        scanner.scan(scansuccess);
       });
 
     });
